@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: hepatitis-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    autoDeploy: true
+    envVars:
+      - key: FLASK_DEBUG
+        value: "0"
+    disk:
+      name: storage
+      mountPath: /opt/render/project/src/storage
+      sizeGB: 1
+
